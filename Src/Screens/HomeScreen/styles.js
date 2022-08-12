@@ -1,13 +1,13 @@
-import {StyleSheet, Dimensions, Platform} from 'react-native';
+import {StyleSheet, Dimensions, Platform, StatusBar} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Colors from '../../Themes/Colors';
 import {commonFontStyle} from '../../Themes/Fonts';
 
 export const styles = StyleSheet.create({
   videoView: {
-    height: Dimensions.get('window').height,
+    height: Dimensions.get('window').height + StatusBar.currentHeight,
     width: '100%',
-    backgroundColor: 'red',
+    backgroundColor: Colors.black,
     // position: 'absolute',
     top: 0,
     left: 0,

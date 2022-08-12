@@ -7,9 +7,6 @@ import {
   Dimensions,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {getNewVideo} from '../../Redux/Actions/VideoAction';
-import Video from 'react-native-video';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Colors from '../Themes/Colors';
 import {commonFontStyle} from '../Themes/Fonts';
@@ -20,14 +17,13 @@ export default function Talent({talent, onPressCart, duration, progress}) {
     <View style={styles.talentView}>
       <View style={styles.innerViewTalent}>
         <View style={styles.talentImageView}>
-          {/* {console.log(progress * 100)} */}
           <AnimatedCircularProgress
             size={60}
             width={2}
             fill={progress * 100}
-            tintColor={Colors.pink}
+            tintColor={'transparent'}
             rotation={-180}
-            backgroundColor="transparent">
+            backgroundColor={Colors.pink}>
             {fill => (
               <Image
                 source={{uri: talent.avatar_url}}
@@ -37,7 +33,7 @@ export default function Talent({talent, onPressCart, duration, progress}) {
           </AnimatedCircularProgress>
 
           <View style={styles.talentMIddleView}>
-            <Text style={styles.talentPrice}>${talent.price.cost}</Text>
+            <Text style={styles.talentPrice}>${talent.cost}</Text>
             <Text style={styles.talentPrice}>#{talent.name_en}</Text>
             <Text style={styles.notes}>Top Notes: bio_en</Text>
           </View>

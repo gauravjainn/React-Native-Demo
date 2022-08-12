@@ -84,8 +84,6 @@ export default function TalentModal({visible, onClose, talent}) {
               data={data}
               renderItem={RenderCarouselItem}
               inactiveSlideOpacity={1}
-              //   autoplay={true}
-              //   loop={true}
               horizontal={true}
               autoplayDelay={1000}
               useNativeDriver={true}
@@ -114,8 +112,8 @@ export default function TalentModal({visible, onClose, talent}) {
             <View style={styles.titleMainView}>
               <Text style={styles.title}>{talent.name_en}</Text>
               <View style={styles.priceView}>
-                <Text style={styles.Price}>${talent.price.cost_business}</Text>
-                <Text style={styles.salePrice}>${talent.price.cost}</Text>
+                <Text style={styles.Price}>${talent.cost_business}</Text>
+                <Text style={styles.salePrice}>${talent.cost}</Text>
               </View>
             </View>
             <View style={styles.line}></View>
@@ -224,7 +222,7 @@ const styles = StyleSheet.create({
   },
   title: {
     ...commonFontStyle('bold', 16, Colors.black),
-    width: '60%',
+    width: '50%',
   },
   priceView: {
     flexDirection: 'row',
